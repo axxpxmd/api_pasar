@@ -27,8 +27,11 @@ $router->get('/key', function () {
 /**
  * Master Jenis
  */
-$router->group(['prefix' => 'master-jenis'], function () use ($router) {
+$router->group(['prefix' => 'master-jenis', 'namespace' => 'MasterJenis'], function () use ($router) {
     // Jenis Lapak
     $router->get('/jenis-lapak', 'JenisLapakController@index');
     $router->get('/jenis-lapak/{id}', 'JenisLapakController@show');
+    // Jenis Usaha 
+    $router->get('/jenis-usaha', 'JenisUsahaController@index');
+    $router->get('/jenis-usaha/{id}', 'JenisUsahaController@show');
 });

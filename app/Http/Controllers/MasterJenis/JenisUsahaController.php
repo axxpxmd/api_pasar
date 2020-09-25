@@ -1,34 +1,35 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\MasterJenis;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 // Model
-use App\Models\JenisLapak;
+use App\Models\JenisUsaha;
 
-class JenisLapakController extends Controller
+class JenisUsahaController extends Controller
 {
     public function index()
     {
-        $jenisLapak = JenisLapak::select('id', 'nm_jenis_lapak')->get();
+        $jenisUsaha = JenisUsaha::select('id', 'nm_kategori')->get();
 
         return response()->json([
             'success' => true,
             'message' => 'List Data Jenis Lapak',
-            'data'    => $jenisLapak
+            'data'    => $jenisUsaha
         ], 200);
     }
 
     public function show($id)
     {
-        $jenisLapak = JenisLapak::select('id', 'nm_jenis_lapak')->where('id', $id)->first();
+        $jenisUsaha = JenisUsaha::select('id', 'nm_kategori')->where('id', $id)->first();
 
-        if ($jenisLapak != null) {
+        if ($jenisUsaha != null) {
             return response()->json([
                 'success' => true,
-                'message' => 'Show ' . $jenisLapak->nm_jenis_lapak,
-                'data'    => $jenisLapak
+                'message' => 'Show ' . $jenisUsaha->nm_kategori,
+                'data'    => $jenisUsaha
             ], 200);
         } else {
             return response()->json([
