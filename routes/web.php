@@ -19,6 +19,9 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+// Route Not Found
+$router->get('/404', 'BlankPageController@index');
+
 // Generate Key Application 
 $router->get('/key', function () {
     return Str::random(32);
@@ -34,4 +37,13 @@ $router->group(['prefix' => 'master-jenis', 'namespace' => 'MasterJenis'], funct
     // Jenis Usaha 
     $router->get('/jenis-usaha', 'JenisUsahaController@index');
     $router->get('/jenis-usaha/{id}', 'JenisUsahaController@show');
+});
+
+/**
+ * Master Pedagang
+ */
+$router->group(['prefix' => 'master-pedagang', 'namespace' => 'MasterPedagang'], function () use ($router) {
+    // Pedagang
+    $router->get('/pedagang', 'PedagangController@index');
+    $router->get('/pedagang/{id}', 'PedagangController@show');
 });
