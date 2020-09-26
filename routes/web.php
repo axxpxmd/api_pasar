@@ -55,4 +55,7 @@ $router->group(['prefix' => 'master-pasar', 'namespace' => 'MasterPasar'], funct
     // Pasar
     $router->get('/pasar', 'PasarController@index');
     $router->get('/pasar/{id}', 'Pasarcontroller@show');
+    // Pasar Kategori
+    $router->get('/pasar-kategori', 'PasarKategoriController@index');
+    $router->get('/pasar-kategori/{id}', 'PasarKategoriController@show');
 });

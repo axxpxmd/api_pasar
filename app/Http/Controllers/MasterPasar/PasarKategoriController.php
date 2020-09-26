@@ -6,30 +6,30 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 // Model
-use App\Models\Pasar;
+use App\Models\PasarKategori;
 
-class PasarController extends Controller
+class PasarKategoriController extends Controller
 {
     public function index()
     {
-        $pasar = Pasar::all();
+        $pasarKategori = PasarKategori::all();
 
         return response()->json([
             'success' => true,
-            'message' => 'List Data Pasar Kategori',
-            'data'    => $pasar
+            'message' => 'List Data Pasar',
+            'data'    => $pasarKategori
         ], 200);
     }
 
     public function show($id)
     {
-        $pasar = pasar::find($id);
+        $pasarKategori = PasarKategori::find($id);
 
-        if ($pasar != null) {
+        if ($pasarKategori != null) {
             return response()->json([
                 'success' => true,
-                'message' => 'Show ' . $pasar->nm_pasar,
-                'data'    => $pasar
+                'message' => 'Show ' . $pasarKategori->pasar->nm_pasar . ' [' . $pasarKategori->jenisLapak->nm_jenis_lapak . ']' . ' [' . $pasarKategori->ukuran . ']' . ' [' . $pasarKategori->nm_blok . ']',
+                'data'    => $pasarKategori
             ], 200);
         } else {
             return response()->json([
