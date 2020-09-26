@@ -46,10 +46,13 @@ $router->group(['prefix' => 'master-pedagang', 'namespace' => 'MasterPedagang'],
     // Pedagang
     $router->get('/pedagang', 'PedagangController@index');
     $router->get('/pedagang/{id}', 'PedagangController@show');
+    // Pedagang Alamt
+    $router->get('/pedagang-alamat', 'PedagangAlamatController@index');
+    $router->get('/pedagang-alamat/{id}', 'PedagangAlamatController@show');
 });
 
 /**
- * Master Pedagang
+ * Master Pasar
  */
 $router->group(['prefix' => 'master-pasar', 'namespace' => 'MasterPasar'], function () use ($router) {
     // Pasar
