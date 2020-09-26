@@ -59,3 +59,12 @@ $router->group(['prefix' => 'master-pasar', 'namespace' => 'MasterPasar'], funct
     $router->get('/pasar-kategori', 'PasarKategoriController@index');
     $router->get('/pasar-kategori/{id}', 'PasarKategoriController@show');
 });
+
+/**
+ * Master Transaksi
+ */
+$router->group(['prefix' => 'master-transaksi', 'namespace' => 'MasterTransaksi'], function () use ($router) {
+    // Transaksi
+    $router->get('/transaksi', 'TransaksiController@index');
+    $router->get('/transaksi/{id}', 'TransaksiController@show');
+});
